@@ -8,8 +8,12 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        fileName: {
-            field: 'fileName',
+        uniquefilename: {
+            field: 'uniquefilename',
+            type: DataTypes.STRING,
+        },
+        originalname: {
+            field: 'originalname',
             type: DataTypes.STRING,
         },
         url: {
@@ -20,19 +24,19 @@ module.exports = (sequelize, DataTypes) => {
             field: 'datetime',
             type: DataTypes.DATE
         },
-        fileSize: {
-            field: 'fileSize',
+        filesize: {
+            field: 'filesize',
             type: DataTypes.INTEGER,
         },
-        fileType: {
-            field: 'fileType',
+        filetype: {
+            field: 'filetype',
             type: DataTypes.STRING,
         },
         
 	}, {
                 timestamps: false,
                 tableName: 'files',
-                schema: "public",
+                schema: "dropBox",
         },
   );
 

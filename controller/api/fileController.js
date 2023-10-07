@@ -1,28 +1,39 @@
-const db = require('../../models/db');
-// const multer = require('multer');
-// const upload = multer({ dest: 'uploads/' })
 
+const helper = require('./helper');
 
 // Example in-memory database
-const fileDatabase = [];
+// const fileDatabase = [];
 
 // Create a new file
-const createFile = (name, size) => {
-    console.log(name , size , "create file")
+const createFile = async function (req)  {
+    console.log(req ,  "create file")
+    const fileData = {
+        uniquefilename: req.filename,
+        originalname: req.originalname,
+        url: req.destination,
+        datetime: Date.now(),
+        filesize: req.size,
+        filetype: req.mimetype
+    }
 
-      return {message:"nothing done yet"};
+    const result =await helper.insertFileData(fileData);
+    return {code: result.code , message:"message"};
 };
 
 // Get all files
-const getAllFiles = () => {
-    console.log("inside get all files")
-   return {message:"nothing done yet"};;
+const getAllFiles = async function () {
+    console.log("inside get all files");
+    const filesList =await helper.getAllFiles();
+    // console.log(filesList , "list of files");
+   return filesList;
 };
 
 //get file by id
-const getFileById = (id) => {
-    console.log(id , "id");
-    return {message: "nothing to get yet"};
+const getFileById = async function (id) {
+
+    const file = await helper.getFileById(id);
+
+    return file.dataValues;
 };
 
 

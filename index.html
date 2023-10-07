@@ -3,22 +3,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="./views/script.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="stylesheet" href="styles.css"> -->
   <title>Dropbox-like Service</title>
 </head>
 <body>
+  
+  <!-- <h1>File Download</h1>
+  <input type="text" id="filename" placeholder="Enter filename">
+  <button id="download-button">Download</button>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border"
+          role="status" id="loading">
+          <span class="sr-only">Loading...</span>
+      </div>
+  </div> -->
   <h1>File Upload</h1>
-  <form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="fileName" >
+  <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileName" id="fileName" required>
     <button type="submit">Upload</button>
   </form>
 
-  <!-- <h1>File Download</h1>
-  <input type="text" id="filename" placeholder="Enter filename">
-  <button id="download-button">Download</button> -->
+  <h1>File Download</h1>
+  <input type="text" id="filename" placeholder="Enter file id">
+  <button id="download-button">Download</button>
 
-  <!-- <script src="scripts.js"></script> -->
+  <h1>Files List</h1>
+  <!-- table for showing data -->
+  <table id="Files"></table>
+
 </body>
 </html>
